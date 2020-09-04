@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 100px;
+    padding: 100px 200px 0 200px;
 }
 
 .topbar {

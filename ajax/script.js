@@ -1,11 +1,11 @@
-var template = $('#template').html();
-var compiled = Handlebars.compile(template);
-var target = $('#append-disks');
-target.html("");
+// var template = $('#template').html();
+// var compiled = Handlebars.compile(template);
+// var target = $('#append-disks');
+// target.html("");
 
 $.ajax({
 
-    url: 'index.php',
+    url: 'db.php',
     method: "GET",
     data : 'response',
     success: function (data) {
@@ -20,3 +20,4 @@ $.ajax({
         console.log('err', err)
     }
 });
+

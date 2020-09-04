@@ -20,37 +20,39 @@ require 'db.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>PhP Disks</title>
 </head>
 <body>
+<div class='topbar'>
+    <img src="spotify-download-logo-30.png" alt="logo spotify">
+</div>
 <div class='background'>
 
-<div class='topbar'>
-    <img src="" alt="logo spotify">
-</div>
 
 <?php  
 
  foreach ($DATA['response'] as $value) {
 ?>
+
     <div class='container'>
 
         <div><img src="<?php echo $value['poster']; ?>" alt="poster img"></div>
         
-        <div class='title'><?php echo $value['title']; ?></div>
+        <h3 class='title'><?php echo $value['title']; ?></h3>
 
-        <div class='author'><?php echo $value['author']; ?></div>
+        <p class='author'><?php echo $value['author']; ?></p>
 
-        <div class='genre'><?php echo $value['genre']; ?></div>
+        <p class='genre'><?php echo $value['genre']; ?></p>
 
-        <div class='year'><?php echo $value['year']; ?></div>
+        <p class='year'><?php echo $value['year']; ?></p>
     </div>
-<?php
-    
- };
 
+<?php   
+ };
  ?>
+
 </div>
 
     

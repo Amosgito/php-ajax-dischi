@@ -3,21 +3,49 @@
 // var target = $('#append-disks');
 // target.html("");
 
-$.ajax({
+function getData() {
 
-    url: 'db.php',
-    method: "GET",
-    data : 'response',
-    success: function (data) {
+    
+    $.ajax({
+    
+        url: 'db.php',
+        method: "GET",
 
-        var result = data['poster']
+        success: function (data) {
+            
+            var dbdata = data['response'];
+            printData(dbdata);
+    
+        },
+        error: function (err) {
+    
+            console.log('err', err)
+        }
+    });
+}
 
-        console.log(result)
+function printData(dbdata) {
 
-    },
-    error: function (err) {
+    var source = $("#template").html();
+    var compiled = Handlebars.compile(source);
+    var target = $('#append-disks');
 
-        console.log('err', err)
+    target.html(' ');
+
+    for (var i = 0; i < dbdata.length; i++) {
+
+        var cd = dbdata[i];
+        var htmlCd = compiled(cd);
+        target.append(htmlCd);
     }
-});
 
+}
+
+
+
+function init() {
+
+    getData()
+}
+
+$(document).ready(init);

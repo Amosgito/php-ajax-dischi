@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: aplication/json');
+
 $DATA =
 [
     "success" => true,
@@ -76,7 +78,7 @@ $DATA =
     ]
 ];
 
-
+echo json_encode($DATA);
 
 
 ?>

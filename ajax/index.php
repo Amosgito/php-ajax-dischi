@@ -13,9 +13,26 @@ Utilizzare: Html, JS, jQuery, handlebars, Php -->
 <?php
 require 'db.php';
 
-header('Content-Type: aplication/json');
+ $dress = $_GET('select#dress');
+ $size = $_GET('select#size');
 
-echo json_encode($DATA);
+  foreach ($db as $value) {
+    
+    if ($dress === $value) {
+
+        foreach ($db['size'] as $dbSize) {
+           
+            if ($dbSize === $size ) {
+
+                echo json_encode ('true');
+                return;
+            }
+        }
+    } else {
+
+        echo json_encode('false');
+    }
+  }
 
 ?>
 
